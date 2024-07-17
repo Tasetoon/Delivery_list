@@ -31,7 +31,7 @@ async def command_site_handler(message: Message) -> None:
 
             InlineKeyboardButton(
                 text="Open",
-                web_app=WebAppInfo(url=f'https://www.google.ru/?hl=ru'),
+                web_app=WebAppInfo(url=f'http://5.42.220.196/'),
             )
         ]]
     )
