@@ -12,7 +12,7 @@ export default function index() {
 
 
   useEffect(() => {
-  fetch('http://localhost:8080/orders')
+  fetch('http://5.42.220.196/orders')
             .then((response) => response.json())  
             .then((data) => {
               setData(data.orders);
