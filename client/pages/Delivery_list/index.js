@@ -15,10 +15,12 @@ export default function index() {
   fetch('http://5.42.220.196/orders')
             .then((response) => response.json())  
             .then((data) => {
-              setData(data.orders);
-              setTotal(data.total_price);
-              setDelivery(data.delivery_price);
-              setCashier(data.to_cashier);
+              if(data.length > 0){
+                setData(data.orders);
+                setTotal(data.total_price);
+                setDelivery(data.delivery_price);
+                setCashier(data.to_cashier);
+              }
       })
   }, []);
 

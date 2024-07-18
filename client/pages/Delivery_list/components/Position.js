@@ -9,7 +9,7 @@ export default function position(props){
     setPositionStyle('hidden')
   }
   useEffect(() => {
-    if(props.name.slice(0,8) === 'Доставка'){
+    if(props.name && props.name.slice(0,8) === 'Доставка'){
     }
   }, [])
 
