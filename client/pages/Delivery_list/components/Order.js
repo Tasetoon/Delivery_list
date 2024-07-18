@@ -6,11 +6,15 @@ export default function Order(props) {
   const [extra, setExtra] = useState('');
   const [order_style, setOrderStyle] = useState('m-2 flex flex-col width text font-medium rounded-lg bg-zinc-700 border-gray-900 text-white p-3');
 
-  const data = props.input_data;
-  const positions = props.positions;
+  const [data, setData] = useState({});
+  // const data = props.input_data;
+  const [positions, setPositions] = useState([]);
+  // const positions = props.positions;
 
   const fetchData = async () => {
     setAdressurl(`https://yandex.ru/maps/?text=${data.adress}`);
+    setData(props.input_data);
+    setPositions(props.positions);
     if(data.paid == false){
       setPaid('Доплатить: ');
       setExtra(data.extra);
