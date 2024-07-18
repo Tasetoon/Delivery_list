@@ -2,7 +2,6 @@ import React, {useEffect, useStatem, useRef, useState} from 'react'
 import Router from 'next/router'
 import Order from './components/Order'
 import Footer from './components/Footer';
-import Header from './components/Header';
 export default function index() {
   const [data, setData] = useState([]);
   const [total_price, setTotal] = useState();
@@ -15,12 +14,10 @@ export default function index() {
   fetch('http://5.42.220.196/orders')
             .then((response) => response.json())  
             .then((data) => {
-              if(data.length > 0){
                 setData(data.orders);
                 setTotal(data.total_price);
                 setDelivery(data.delivery_price);
-                setCashier(data.to_cashier);
-              }
+                setCashier(data.to_cashier);       
       })
   }, []);
 
@@ -37,9 +34,6 @@ export default function index() {
   return (
     <div className='wrapper'>
       <header className='header'>
-        <Header
-        text = {'Назад'}
-        />
       </header>
       <main className='main'>
         <div className='overflow-hidden'>

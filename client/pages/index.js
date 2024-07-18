@@ -1,15 +1,11 @@
 import React from 'react'
 import Footer from './Delivery_list/components/Footer'
-import Header from './Delivery_list/components/Header'
 function index() {
 
 
   return (
     <div className='wrapper'>
       <header className='header'>
-        <Header
-          text = {'Отмена'}
-        />
       </header>
       <main className='main'>
           <a href='Delivery_list/'>
