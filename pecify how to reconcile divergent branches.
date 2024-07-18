@@ -1,0 +1,164 @@
+[33mcommit 155791fc2638cd7df95f49282438822542d52b9e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Phil <fsarg2007@gmail.com>
+Date:   Thu Jul 18 21:04:05 2024 +0300
+
+    fixing commit
+
+[33mcommit 5d993f69e88418beff2ceb4f2bb9968f19dc81e6[m
+Author: Phil <fsarg2007@gmail.com>
+Date:   Thu Jul 18 19:56:56 2024 +0300
+
+    test
+
+[33mcommit 362b6251457eff5ababf54214a0fb8b7a883dcc0[m
+Author: Philip <fsarg2007@gmail.com>
+Date:   Thu Jul 18 19:32:21 2024 +0300
+
+    hotfix
+
+[33mcommit 663ba9dba39e24c9943a96388d8c7842ccdcedde[m
+Author: Philip <fsarg2007@gmail.com>
+Date:   Wed Jul 17 22:33:49 2024 +0300
+
+    changed url for my tgwebapp
+
+[33mcommit 57cb91c173c653e8c119c435ab17e55aa7a69c97[m
+Author: Philip <fsarg2007@gmail.com>
+Date:   Wed Jul 17 20:56:15 2024 +0300
+
+    fixed nextjs fetching url
+
+[33mcommit e72a292edd1375456a74a61bb7bc4dc34c63279c[m
+Author: Philip <fsarg2007@gmail.com>
+Date:   Wed Jul 17 18:25:48 2024 +0300
+
+    fixed warning with Next.js
+
+[33mcommit f8f28d5f0f6e5dcbfdf12c9d47315df51226eeb5[m
+Author: Philip <fsarg2007@gmail.com>
+Date:   Wed Jul 17 18:19:58 2024 +0300
+
+    added CORS import
+
+[33mcommit 0eae1e2ac305bc9a7d041c05f9fafeb169f0501e[m
+Author: Philip <fsarg2007@gmail.com>
+Date:   Wed Jul 17 17:40:12 2024 +0300
+
+    connection fixes
+
+[33mcommit fe7f71c685c2eff99cfe301bffb821774372e709[m
+Author: Philip <fsarg2007@gmail.com>
+Date:   Wed Jul 17 17:22:55 2024 +0300
+
+    fixing connection
+
+[33mcommit 22acbfd8c5f2eab63018e9fe88c7d74407633a59[m
+Author: Philip <fsarg2007@gmail.com>
+Date:   Tue Jul 16 17:59:27 2024 +0300
+
+    fixing connection
+
+[33mcommit 41eee1a246b4f4d45e018a69d6d250408080275d[m
+Author: Philip <fsarg2007@gmail.com>
+Date:   Tue Jul 16 17:37:20 2024 +0300
+
+    fixing connection
+
+[33mcommit 6b0f96ee65045db72f25eda1eb3ac4ffac0547ae[m
+Author: Philip <fsarg2007@gmail.com>
+Date:   Tue Jul 16 17:33:12 2024 +0300
+
+    fixing connection
+
+[33mcommit 6107c7c25b42b50a5c5355d7c8661dcf65b38fec[m
+Author: Philip <fsarg2007@gmail.com>
+Date:   Tue Jul 16 17:31:01 2024 +0300
+
+    fixing connection
+
+[33mcommit 164a519c2bfcda73a42692d2c8d8ac4dd47fb0bf[m
+Author: Philip <fsarg2007@gmail.com>
+Date:   Tue Jul 16 17:26:11 2024 +0300
+
+    fixing connection
+
+[33mcommit d9bd274b0283ccf5274206986eefc38053494a72[m
+Author: Philip <fsarg2007@gmail.com>
+Date:   Tue Jul 16 17:18:43 2024 +0300
+
+    changed host for flaskapp
+
+[33mcommit 8f681a6ef5e3edecb9d15a887efb6049dc29e356[m
+Author: Phil <fsarg2007@gmail.com>
+Date:   Tue Jul 16 15:46:34 2024 +0300
+
+    test commit
+
+[33mcommit e442c458f4f2f35becdbc3598af400b1a89c786b[m
+Author: Philip <fsarg2007@gmail.com>
+Date:   Tue Jul 16 14:06:03 2024 +0300
+
+    hotfix
+
+[33mcommit 67b82ac41f662fe81cd8e467a890472c6444f3f1[m
+Author: Philip <fsarg2007@gmail.com>
+Date:   Tue Jul 16 03:01:06 2024 +0300
+
+    fix
+
+[33mcommit a634c46ef878e3e62d6a4db5b000991ec20838dc[m
+Author: Philip <fsarg2007@gmail.com>
+Date:   Tue Jul 16 02:53:52 2024 +0300
+
+    chaning dependensies
+
+[33mcommit da7e86267b990d11f8ff40d1a76bda0930901547[m
+Author: Philip <fsarg2007@gmail.com>
+Date:   Tue Jul 16 02:47:48 2024 +0300
+
+    added dependency
+
+[33mcommit 67a191f70e0f9fdc8d152ba28f2250a46b814c16[m
+Author: Philip <fsarg2007@gmail.com>
+Date:   Tue Jul 16 02:18:30 2024 +0300
+
+    initial
+
+[33mcommit 4643230d5a4a0c98c3400fe51c380398182698ea[m
+Merge: ce8d92b e3a21ba
+Author: Philip <145398538+Tasetoon@users.noreply.github.com>
+Date:   Mon Jul 8 23:24:05 2024 +0300
+
+    Merge pull request #1 from Tasetoon/feature
+    
+    Feature
+
+[33mcommit e3a21bab07cbd83c97f4eca28a186148d30daeb0[m[33m ([m[1;31morigin/feature[m[33m)[m
+Author: Philip <fsarg2007@gmail.com>
+Date:   Mon Jul 8 23:22:10 2024 +0300
+
+    finished functions
+
+[33mcommit 8ebef31ee34e62d0b321417c94251e77ba4af6c1[m
+Author: Philip <fsarg2007@gmail.com>
+Date:   Thu Jul 4 21:17:04 2024 +0300
+
+    Made dynamic rendering + routing
+
+[33mcommit 701d171c344bc468784f51c69be5ef249f5ef0ae[m
+Author: Philip <fsarg2007@gmail.com>
+Date:   Tue Jul 2 01:26:37 2024 +0300
+
+    small changes
+
+[33mcommit ce8d92bd9a85a29e40779d528c31dd68c45a2d97[m
+Author: Philip <fsarg2007@gmail.com>
+Date:   Tue Jul 2 01:18:55 2024 +0300
+
+    set up and first tests
+
+[33mcommit cd4f14b4a0dd06405fbf0d0e5985c02a1bdf07af[m
+Author: Philip <fsarg2007@gmail.com>
+Date:   Mon Jul 1 23:05:44 2024 +0300
+
+    Initial commit from Create Next App
