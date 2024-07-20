@@ -33,8 +33,7 @@ export default function index() {
 
   return (
     <div className='wrapper'>
-      <header className='header'>
-      </header>
+      <header className='header'></header>
       <main className='main'>
         <div className='overflow-hidden'>
           <div className='mt-10'>

@@ -5,8 +5,7 @@ function index() {
 
   return (
     <div className='wrapper'>
-      <header className='header'>
-      </header>
+      <header className='header'></header>
       <main className='main'>
           <a href='Delivery_list/'>
             <div className='mt-72 m-2 flex font-medium rounded-lg bg-zinc-700 border-gray-900 text-white p-3'>
