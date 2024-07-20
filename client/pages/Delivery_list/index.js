@@ -2,6 +2,87 @@ import React, {useEffect, useStatem, useRef, useState} from 'react'
 import Router from 'next/router'
 import Order from './components/Order'
 import Footer from './components/Footer';
+
+
+const _data ={
+  'orders': [{
+          "order_id": 98783,
+          "adress": "Горбушка",
+          "additional_contacts": "ПОЗВОНИТЬ ЗА ЧАС",
+          "paid": true,
+          "extra": NaN,
+          "customer": "Alex",
+          "phone_number": "878374873",
+          "metro": "(7)China-town",
+          "tovar_arrival_time": "17-22",
+          "positions": [{
+              "id": 1,
+              "name": "ljjeljfle",
+              "amount": 2,
+              "price": 22000
+          },
+          {
+              "id": 2,
+              "name": "ksjdj",
+              "amount": 1,
+              "price": 1000
+          },
+          {
+              "id": 3,
+              "name": "ejfelj",
+              "amount": 1,
+              "price": 1000
+          },
+          {
+              "id": 4,
+              "name": "ppi",
+              "amount": 1,
+              "price": 1000
+          },
+          {
+              "id": 5,
+              "name": "oiglhv",
+              "amount": 1,
+              "price": 1000
+          },
+          {
+              "id": 6,
+              "name": "Доставка",
+              "amount": 1,
+              "price": 1000
+          }
+          ]
+      },
+      {
+          "order_id": 123,
+          "adress": "Ленинский проспект",
+          "additional_contacts": "ПОЗВОНИТЬ ЗА ЧАС",
+          "paid": false,
+          "extra": 9900,
+          "customer": "Mike",
+          "phone_number": "878374873",
+          "metro": "(3)Leninskiy prospekt",
+          "tovar_arrival_time": "13-17",
+          "positions": [{
+              "id": 1,
+              "name": "ljjeljfle",
+              "amount": 2,
+              "price": 22000
+          },
+          {
+              "id": 2,
+              "name": "Доставка",
+              "amount": 1,
+              "price": 1000
+          }]
+      }],
+      'total_price': 50000,
+      'delivery_price': 10000,
+      'to_cashier': 40000
+}
+
+
+
 export default function index() {
   const [data, setData] = useState([]);
   const [total_price, setTotal] = useState();
@@ -11,14 +92,19 @@ export default function index() {
 
 
   useEffect(() => {
-  fetch('http://5.42.220.196/orders')
-            .then((response) => response.json())  
-            .then((data) => {
-                setData(data.orders);
-                setTotal(data.total_price);
-                setDelivery(data.delivery_price);
-                setCashier(data.to_cashier);       
-      })
+    setData(_data.orders);
+    setTotal(_data.total_price);
+    setDelivery(_data.delivery_price);
+    setCashier(_data.to_cashier);
+  // fetch('http://5.42.220.196/orders')
+  //           .then((response) => response.json())  
+  //           .then((data) => {
+  //               setData(data.orders);
+  //               setTotal(data.total_price);
+  //               setDelivery(data.delivery_price);
+  //               setCashier(data.to_cashier);       
+  //     })
+
   }, []);
 
   const handleClickRefresh = async (e) => {
