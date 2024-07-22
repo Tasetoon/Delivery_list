@@ -5,7 +5,7 @@ export default function Order(props) {
   const [paid, setPaid] = useState('');
   const [extra, setExtra] = useState('');
   const [order_style, setOrderStyle] = useState('m-2 flex flex-col width text font-medium rounded-lg bg-zinc-700 border-gray-900 text-white p-3');
-
+  const [phone, setPhone] = useState('');
   const [data, setData] = useState({});
   const [positions, setPositions] = useState([]);
 
@@ -13,6 +13,7 @@ export default function Order(props) {
     setData(props.input_data);
     setPositions(props.positions);
     setAdressurl(`https://yandex.ru/maps/?text=${props.input_data.adress}`);
+    setPhone(`tel:${props.input_data.phone_number}`)
     if(data.paid == false){
       setPaid('Доплатить: ');
       setExtra(data.extra);
@@ -52,7 +53,9 @@ export default function Order(props) {
       <li className="w-full border-b border-gray-900">{paid}{extra}</li>
       <li className="w-full border-b border-gray-900">клиент: {data.customer}</li>
       <li className="w-full border-b border-gray-900">метро: {data.metro}</li>
-      <li className="w-full border-b border-gray-900">номер телефона: {data.phone_number}</li>
+      <li className="w-full border-b border-gray-900">
+        <a href={phone}>{data.phone_number}</a>
+      </li>
       <li className="w-full border-b border-gray-900">время доставки: {data.tovar_arrival_time}</li>
       <li className="w-full border-b border-gray-900">
         {positions.length > 0 ? (  
