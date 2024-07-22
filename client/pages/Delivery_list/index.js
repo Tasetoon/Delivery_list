@@ -60,7 +60,7 @@ const _data ={
           "paid": false,
           "extra": 9900,
           "customer": "Mike",
-          "phone_number": "878374873",
+          "phone_number": "+79163874752",
           "metro": "(3)Leninskiy prospekt",
           "tovar_arrival_time": "13-17",
           "positions": [{
