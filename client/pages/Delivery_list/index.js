@@ -2,6 +2,7 @@ import React, {useEffect, useStatem, useRef, useState} from 'react'
 import Router from 'next/router'
 import Order from './components/Order'
 import Script from 'next/script';
+import { boolean } from '@telegram-apps/sdk-react';
 
 
 const _data ={
@@ -89,7 +90,6 @@ export default function index() {
   const [delivery_price, setDelivery] = useState();
   const [to_cashier, setCashier] = useState();
   const [style, setStyle] = useState('hidden');
-  // const [confirmed, setConfirmed] = useState(false);
 
 
   useEffect(() => {
@@ -127,7 +127,7 @@ export default function index() {
   }, []);
 
   const handleClickRefresh = async (e) => {
-    window.Telegram.WebApp.showConfirm('Вы уверены? \n это сбросит все изменения');	
+    window.Telegram.WebApp.showConfirm('Вы уверены? \n Это сбросит все изменения'[() => {Router.reload()}]);	
   }
 
   const handleClickResult = async (e) => {
