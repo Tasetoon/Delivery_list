@@ -127,11 +127,11 @@ export default function index() {
 
   const handleClickRefresh = async (e) => {
     
-    window.Telegram.WebApp.showConfirm('Вы уверены? \nЭто сбросит все изменения', [result, () => { 
+    window.Telegram.WebApp.showConfirm('Вы уверены? \nЭто сбросит все изменения', [result => {
       if(result) {
         Router.reload();
       }
-    }])
+    }]);
   }
 
   const handleClickResult = async (e) => {
