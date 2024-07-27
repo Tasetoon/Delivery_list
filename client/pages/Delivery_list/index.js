@@ -89,6 +89,7 @@ export default function index() {
   const [delivery_price, setDelivery] = useState();
   const [to_cashier, setCashier] = useState();
   const [style, setStyle] = useState('hidden');
+  // const [confirmed, setConfirmed] = useState(false);
 
 
   useEffect(() => {
@@ -127,7 +128,7 @@ export default function index() {
 
   const handleClickRefresh = async (e) => {
     e.preventDefault()
-    window.Telegram.WebApp.showConfirm('Вы уверены? \n это сбросит все изменения'[Router.reload()]);	
+    window.Telegram.WebApp.showConfirm('Вы уверены? \n это сбросит все изменения'[true, Router.reload()]);	
     
   }
 
