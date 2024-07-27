@@ -127,9 +127,7 @@ export default function index() {
   }, []);
 
   const handleClickRefresh = async (e) => {
-    e.preventDefault()
-    window.Telegram.WebApp.showConfirm('Вы уверены? \n это сбросит все изменения'[true, Router.reload()]);	
-    
+    window.Telegram.WebApp.showConfirm('Вы уверены? \n это сбросит все изменения');	
   }
 
   const handleClickResult = async (e) => {
