@@ -1,7 +1,6 @@
 import React, {useEffect, useStatem, useRef, useState} from 'react'
 import Router from 'next/router'
 import Order from './components/Order'
-import Footer from './components/Footer';
 
 
 const _data ={
@@ -154,7 +153,6 @@ export default function index() {
         </div>
       </main>
       <footer className='footer'>
-        <Footer/>
       </footer>
     </div>
 

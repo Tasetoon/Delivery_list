@@ -9,7 +9,8 @@
 
 html,
 body{
-  background-color: #333333;
+  background: var(--tg-theme-bg-color);
+  color: var(--tg-theme-text-color);
   height: 100%;
 }
 
@@ -50,4 +51,8 @@ body{
   height: 2.5em;
 }
 
+
+.bg_color{
+  
+}
 

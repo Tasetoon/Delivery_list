@@ -1,5 +1,4 @@
 import React from 'react'
-import Footer from './Delivery_list/components/Footer'
 function index() {
 
 
@@ -21,7 +20,6 @@ function index() {
           </a>
       </main>
       <footer className='footer'>
-        <Footer/>
       </footer>
 
     </div>
