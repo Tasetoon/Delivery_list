@@ -5,7 +5,7 @@ function index() {
   useEffect(() => {
       window.Telegram.WebApp.setHeaderColor('secondary_bg_color');
       window.Telegram.WebApp.setBackgroundColor('secondary_bg_color');
-      window.Telegram.WebApp.BackButton.hide()
+      window.Telegram.WebApp.BackButton.hide();
     }, [])
 
   return (
@@ -37,8 +37,6 @@ function index() {
 
         </div>
       </main>
-      <footer className='footer'>
-      </footer>
 
     </div>
   )

@@ -93,7 +93,12 @@ export default function index() {
 
   useEffect(() => {
       window.Telegram.WebApp.BackButton.show()
-      window.Telegram.WebApp.onEvent('backButtonClicked', () => Router.back())
+      window.Telegram.WebApp.setHeaderColor('secondary_bg_color');
+      window.Telegram.WebApp.setBackgroundColor('secondary_bg_color');
+      window.Telegram.WebApp.onEvent('backButtonClicked', () => {
+        window.Telegram.WebApp.BackButton.hide();
+        Router.back();
+      })
     }, [])
 
 
@@ -159,8 +164,6 @@ export default function index() {
           </div>
         </div>
       </main>
-      <footer className='footer'>
-      </footer>
     </div>
 
   )
