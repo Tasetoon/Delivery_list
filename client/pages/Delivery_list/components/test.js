@@ -33,7 +33,7 @@ const Dropdown = () => {
                     <button onClick={onClose}>Close</button>
                 </div>
                 <div>
-                    <button onClick={onReady}>Check</button>
+                    <button onClick={onReady} className=' text-rose-900 text-5xl'>НАЖМИ</button>
                 </div>
                 <a href='https://yandex.ru/maps/?text=ВШЭ' className=' text-blue-500'>кликай сюды</a>
 
