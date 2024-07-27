@@ -9,6 +9,12 @@ const Dropdown = () => {
         // setMainButton(tg.MainButton);
 
         window.Telegram.WebApp.MainButton.show();
+
+        window.Telegram.WebApp.setBackgroundColor('#8A2BE2')
+        console.log(window.Telegram.WebApp.backgroundColor);
+        console.log(window.Telegram.WebApp.headerColor);
+        console.log(window.Telegram.WebApp.version);
+
       }, [])
 
     const onClose = () => {
@@ -16,7 +22,7 @@ const Dropdown = () => {
     }
 
     const onReady = () => {
-        tg.ready();
+        tg.showConfirm('Сосал?')
         console.log(tg)
     }
 
