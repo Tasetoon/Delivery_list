@@ -92,11 +92,16 @@ export default function index() {
 
 
   useEffect(() => {
-      window.Telegram.WebApp.BackButton.show()
-      window.Telegram.WebApp.setHeaderColor('secondary_bg_color');
-      window.Telegram.WebApp.setBackgroundColor('secondary_bg_color');
-      window.Telegram.WebApp.onEvent('backButtonClicked', () => {
-        window.Telegram.WebApp.BackButton.hide();
+      const tg = window.Telegram.WebApp;
+      tg.MainButton.show();
+      tg.MainButton.setText('Посчитать меня');
+      tg.onEvent('mainButtonClicked', handleClickResult)
+
+      tg.BackButton.show()
+      tg.setHeaderColor('secondary_bg_color');
+      tg.setBackgroundColor('secondary_bg_color');
+      tg.onEvent('backButtonClicked', () => {
+        tg.BackButton.hide();
         Router.back();
       })
     }, [])
@@ -152,15 +157,11 @@ export default function index() {
                 <h1 className='text-center font-extrabold '>Loading...</h1>
               )}
           </div>
-          <div className='m-10 mb-3 flex justify-between'>
-            <button onClick={handleClickRefresh} className='text-white bg-gradient-to-r from-red-500 via-red-600 to-red-700 hover:bg-gradient-to-br focus:ring-5 focus:outline-none focus:ring-blue-800 font-medium text-center mb-2 p-3 rounded-md'>
-              СБРОС
-            </button>
-            <button onClick={handleClickResult} className='text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-5 focus:outline-none focus:ring-blue-800 font-medium text-center mb-2 p-3 rounded-md'>
-              Посчитать меня
-            </button>
+          <div className='m-10 mb-3 flex justify-center'>
+            <img onClick={handleClickRefresh} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEAklEQVR4nO2aS48UVRTHf4o6Gs0MdN1TTQyJmszCt279AIoPUCFxgeJKiG5ARLeIayWakJgY4ycwcaMZnwHDwokK8kr3PTXlTEh4LYy6E0XUNmfq1kxFZobuprumSvgnN6lJ3zm3/ueee+55FFzF/xQtRhtt4qc97i1FJjySKPKrIucV+TM8px751CN7srm3RlQBJ7jtxjbyvOK+9MjfinR6HBc87vOEeHMLbiidwEnW3KRErypyNn8pj/vDI/s9bpdpe4rGXccZW3UIrrdhzy0adyfETynyhkf2hd3KSZ01mSnjI6WQ8LgnPG5mnoAc9LgtM6wa61WWkbP/VdyRgkJm2rjHF1h3R0pjzUDMyCPvFTT4g0ceYUBQZK3HHQvK+UeR921N+80jG810E+SZy1qkhay2F88IuN8U2daBFQwYHVjhcTs97vdA6DtPvMHjzgXlvd238ITmHR43HQSrp3kvQ4YS31c03/nhJvveiZyECTEXS0lIiO70yF9FIuZQenYGZp8Fc5o8SvNmSvWKbnIhl+2JH+pJWH6wzZzK3IkOXKu4jxa7ezzulZ5cbH6wyzgTRSjyzlKXqEc+7HpbCwdtGyUjpTHapnmPueM27gW7PBX5wCIARdo2uhKkyGv5PTEMF1sKUsZHPHImHKqHqSsS4s152EGdobivgmfYQl3RYrRhF5BdOv0EgJWBJ94QzGofdYZH9gSz2kWdochE5najJ6kzFEmNiGV21BmK/GJEyoyrhgIN+fOyFAGuVCIp4yN5flJr00pZLYHIT7U+7O0sOrY7L1nU/VrdiYrDIxsDkY+XuhBfp+LQLEexd33zoh+tOhhY7qfiUORAILJukapfFjQeYWwlFUWL0UbwsBcsm1xwkuK+CEy3UlEo8Ushg51YYlL0XJh0iAqiA9cocjgoe9OlUt3TgcxaKgaPWxfO8alLFuqs9hqIHK5S8eFruC4vcitue5dV97ky6ctUBH5ewVNdl00T3GPBDs8lxPezzGghDxYq9L21MhT3bq6B5ez1pbNxlfsxKHZvv42dg8HEvi2ziJ2jhdxiPZK8V9J3W860EbqzJuh7+5tSqzrum7AT08eJm5cl0Bo9+daamU0hD1DCmdD5NVOleftABJs2cjMzB2CNSXOHDMfF7iy23qZpxgNdJGv8zDkAI3TUvNugbuzQLT5WkL93qK3qBHm0sO2zVXsletGCzv4CwNnYaTbs0GBKg+wWd3Np7iiEM50QkR7wuN1WtbQszty21QBs2LM1jbJWs9sdQvG5DwYs7FDc9tI+GLi4CBA963Gf/bdx2e0nHNl3K27TshBYCFb4VqL1lrUp8on1HhX3c9D6eXv2iLf0NJsTrV80n7gK6o9/AeZcqmLW7fdPAAAAAElFTkSuQmCC"></img>
           </div>
           <div className={style}>
+            
               <ul>
                 <li className='w-full border-b border-gray-900 text-white'>Общая сумма - {total_price}</li>
                 <li className='w-full border-b border-gray-900 text-white'>Сумма за доставки - {delivery_price}</li>
