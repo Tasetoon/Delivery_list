@@ -4,7 +4,7 @@ export default function Order(props) {
   const [adress_yandex_map, setAdressurl] = useState('');
   const [paid, setPaid] = useState('');
   const [extra, setExtra] = useState('');
-  const [order_style, setOrderStyle] = useState('m-2 flex flex-col font-medium rounded-lg p-3');
+  const [order_style, setOrderStyle] = useState('m-2 flex flex-col font-medium rounded-lg p-3 section');
   const [phone, setPhone] = useState('');
   const [data, setData] = useState({});
   const [positions, setPositions] = useState([]);
