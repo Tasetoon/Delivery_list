@@ -4,7 +4,7 @@ export default function Order(props) {
   const [adress_yandex_map, setAdressurl] = useState('');
   const [paid, setPaid] = useState('');
   const [extra, setExtra] = useState('');
-  const [order_style, setOrderStyle] = useState('');
+  const [order_style, setOrderStyle] = useState('m-2 flex flex-col font-medium rounded-lg p-3');
   const [phone, setPhone] = useState('');
   const [data, setData] = useState({});
   const [positions, setPositions] = useState([]);
@@ -25,12 +25,6 @@ export default function Order(props) {
 
   useEffect(() => {
     fetchData()
-  }, [])
-
-  useEffect(() => {
-    if(props.style === 'drop'){
-      setOrderStyle('m-2 flex flex-col font-medium rounded-lg p-3')
-    }
   }, [])
 
   const handleClickCloseOrder = async (e) => {
