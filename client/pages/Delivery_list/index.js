@@ -129,8 +129,13 @@ export default function index() {
   }
   return (
     <div className='wrapper'>
-      <Script src='/static/telegram-web-app.js' strategy='beforeInteractive'></Script>
-      <header className='header'></header>
+      <header className='header flex justify-center pt-10'>
+        <Script src='/static/telegram-web-app.js' strategy='beforeInteractive'></Script>
+        <div className='text-center '>
+          <h1 className='text-9xl'>📋</h1>
+          <h1 className='m-5'>Маршрутный Лист</h1>
+        </div>
+      </header>
       <main className='main'>
         <div className='overflow-hidden'>
           <div className='mt-10'>
@@ -144,7 +149,7 @@ export default function index() {
                 ))}
             </div>
               ) : (
-                <h1 className='text-center font-extrabold text-white padding-top label-font '>Loading...</h1>
+                <h1 className='text-center font-extrabold '>Loading...</h1>
               )}
           </div>
           <div className='m-10 mb-3 flex justify-between'>

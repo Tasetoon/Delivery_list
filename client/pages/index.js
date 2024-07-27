@@ -19,7 +19,7 @@ function index() {
         </div>
       </header>
       <main className='main'>
-        <div>
+        <div className='mt-10'>
 
         
           <a href='Delivery_list/'>
