@@ -13,7 +13,7 @@ function index() {
       <header className='header flex justify-center pt-10'>
         <Script src='/static/telegram-web-app.js' strategy='beforeInteractive'></Script>
         <div className='text-center '>
-          <h1 className='text-8xl'>🐸</h1>
+          <h1 className='text-9xl'>🐸</h1>
           <h1 className='m-5'>BigGeekApp</h1>
 
         </div>

@@ -22,7 +22,6 @@ body{
 
 .header{
   /* background-color: var(--tg-theme-bg-color); */
-  position: sticky;
   top: 0;
   font-size: 3em;
   line-height: 1;
