@@ -9,7 +9,7 @@
 
 html,
 body{
-  background: var(--tg-theme-bg-color);
+  background: var(--tg-theme-secondary-bg-color);
   color: var(--tg-theme-text-color);
   height: 100%;
 }
@@ -21,9 +21,11 @@ body{
 }
 
 .header{
-  background-color: #333333;
+  background-color: var(--tg-theme-bg-color);
   position: sticky;
   top: 0;
+  font-size: 3em;
+  line-height: 1;
 }
 
 .main{
@@ -52,7 +54,7 @@ body{
 }
 
 
-.bg_color{
-  
+.section{
+  background-color: var(--tg-theme-section-bg-color);
 }
 
