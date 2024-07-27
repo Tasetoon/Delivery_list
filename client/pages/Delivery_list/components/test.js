@@ -1,10 +1,14 @@
 import Script, { handleClientScriptLoad } from 'next/script';
 import React, { useState, useEffect } from 'react'
 const Dropdown = () => {
-    const [tg, setTg] = useState('');
+    const [tg, setTg] = useState();
+    // const [mainButton, setMainButton] = useState();
 
     useEffect(() => {
         setTg(window.Telegram.WebApp);
+        // setMainButton(tg.MainButton);
+
+        window.Telegram.WebApp.MainButton.show();
       }, [])
 
     const onClose = () => {
