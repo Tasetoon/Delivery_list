@@ -93,6 +93,7 @@ export default function index() {
 
   useEffect(() => {
       window.Telegram.WebApp.BackButton.show()
+      window.Telegram.WebApp.onEvent('backButtonClicked', () => Router.back())
     }, [])
 
 
