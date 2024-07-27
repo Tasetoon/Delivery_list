@@ -95,13 +95,14 @@ export default function index() {
       const tg = window.Telegram.WebApp;
       tg.MainButton.show();
       tg.MainButton.setText('Посчитать меня');
-      tg.onEvent('mainButtonClicked', handleClickResult)
+      // tg.onEvent('mainButtonClicked',)
 
       tg.BackButton.show()
       tg.setHeaderColor('secondary_bg_color');
       tg.setBackgroundColor('secondary_bg_color');
       tg.onEvent('backButtonClicked', () => {
         tg.BackButton.hide();
+        tg.MainButton.hide();
         Router.back();
       })
     }, []);
@@ -126,6 +127,7 @@ export default function index() {
 
   const handleClickRefresh = async (e) => {
     e.preventDefault()
+    window.Telegram.WebApp.showConfirm('Вы уверены? \n это сбросит все изменения');	
     Router.reload();
   }
 

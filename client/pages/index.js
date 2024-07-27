@@ -6,6 +6,7 @@ function index() {
       window.Telegram.WebApp.setHeaderColor('secondary_bg_color');
       window.Telegram.WebApp.setBackgroundColor('secondary_bg_color');
       window.Telegram.WebApp.BackButton.hide();
+      window.Telegram.WebApp.MainButton.hide();
     }, [])
 
   return (
