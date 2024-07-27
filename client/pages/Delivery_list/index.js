@@ -1,6 +1,7 @@
 import React, {useEffect, useStatem, useRef, useState} from 'react'
 import Router from 'next/router'
 import Order from './components/Order'
+import Script from 'next/script';
 
 
 const _data ={
@@ -91,6 +92,11 @@ export default function index() {
 
 
   useEffect(() => {
+      window.Telegram.WebApp.BackButton.show()
+    }, [])
+
+
+  useEffect(() => {
     setData(_data.orders);
     setTotal(_data.total_price);
     setDelivery(_data.delivery_price);
@@ -115,9 +121,9 @@ export default function index() {
     e.preventDefault()
     setStyle('m-10 flex')
   }
-
   return (
     <div className='wrapper'>
+      <Script src='/static/telegram-web-app.js' strategy='beforeInteractive'></Script>
       <header className='header'></header>
       <main className='main'>
         <div className='overflow-hidden'>
