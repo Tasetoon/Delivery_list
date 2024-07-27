@@ -10,7 +10,7 @@ const Dropdown = () => {
 
         window.Telegram.WebApp.MainButton.show();
 
-        window.Telegram.WebApp.setBackgroundColor('#8A2BE2')
+        window.Telegram.WebApp.setBackgroundColor("#8A2BE2")
         console.log(window.Telegram.WebApp.backgroundColor);
         console.log(window.Telegram.WebApp.headerColor);
         console.log(window.Telegram.WebApp.version);
@@ -28,7 +28,7 @@ const Dropdown = () => {
 
     return (
             <div className=' h-10 w-auto'>
-                <Script src='https://telegram.org/js/telegram-web-app.js' strategy='beforeInteractive'></Script>
+                <Script src='/static/telegram-web-app.js' strategy='beforeInteractive'></Script>
                 <div>
                     <button onClick={onClose}>Close</button>
                 </div>
