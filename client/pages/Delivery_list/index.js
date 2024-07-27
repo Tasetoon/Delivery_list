@@ -2,7 +2,6 @@ import React, {useEffect, useStatem, useRef, useState} from 'react'
 import Router from 'next/router'
 import Order from './components/Order'
 import Script from 'next/script';
-import { boolean } from '@telegram-apps/sdk-react';
 
 
 const _data ={
