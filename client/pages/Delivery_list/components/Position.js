@@ -5,20 +5,25 @@ import React, {useState, useEffect} from 'react'
 
 export default function position(props){
   const [position_style, setPositionStyle] = useState('border-b border-gray-900');
+  const [pos_name, setName] = useState("");
 
   const searchParams = useSearchParams();
   const total_price = searchParams.get("total_price");
   const delivery_price = searchParams.get("delivery_price");
 
-  const handleClickClosePosition = async (e) => {
+  const handleClickClosePosition = async () => {
     setPositionStyle('hidden');
   }
+
+  useEffect(() => {
+    setName(props.name);
+  }, [pos_name]);
 
   return (
     <div className={position_style}>
       <div className=' flex justify-between'>
         <h1>{props.id}</h1>
-        {props.name.slice(0,8) !== 'Доставка' ?(
+        {pos_name.slice(0,8) !== 'Доставка' ?(
           <Link
             href={
               `?total_price=${total_price-props.price * props.amount}&delivery_price=${delivery_price}`
