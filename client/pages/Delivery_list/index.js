@@ -155,7 +155,7 @@ export default function index() {
 
   useEffect(() => {
     if(total_price){
-      router.push(
+      router.replace(
         `?total_price=${total_price}&delivery_price=${delivery_price}`,
         {scroll: false}
       );
