@@ -174,7 +174,9 @@ export default function index() {
   }
 
   const handleClickResult = async (e) => {
+    window.Telegram.WebApp.MainButton.hide();
     setStyle('m-10 flex');
+
   }
   return (
     <div className='wrapper'>
