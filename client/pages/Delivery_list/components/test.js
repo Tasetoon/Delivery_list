@@ -18,18 +18,16 @@ const Dropdown = () => {
       }, [])
 
     const onCall1 = () => {
-        tg.openLink('tel:+79060540581');
+        tg.openLink('tel:+79060540581'[try_instant_view=true]);
     }
 
     const onCall2 = () => {
-        tg.openLink('tel://+79060540581');
+        tg.openLink('tel://+79060540581'[try_instant_view=true]);
     }
 
     const onReady = () => {
-        tg.showConfirm('Сосал?')
-        console.log(tg)
+        tg.openLink('https://core.telegram.org/bots/webapps#initializing-mini-apps'[try_instant_view=true]);
     }
-
     return (
             <div className=' h-10 w-auto'>
                 <Script src='/static/telegram-web-app.js' strategy='beforeInteractive'></Script>
