@@ -17,8 +17,12 @@ const Dropdown = () => {
 
       }, [])
 
-    const onClose = () => {
-        tg.close();
+    const onCall1 = () => {
+        tg.openLink('tel:+79060540581');
+    }
+
+    const onCall2 = () => {
+        tg.openLink('tel://+79060540581');
     }
 
     const onReady = () => {
@@ -30,8 +34,8 @@ const Dropdown = () => {
             <div className=' h-10 w-auto'>
                 <Script src='/static/telegram-web-app.js' strategy='beforeInteractive'></Script>
                 <div>
-                    <button onClick={window.Telegram.WebApp.openLink('tel:+79060540581')}>Phone1</button>
-                    <button onClick={window.Telegram.WebApp.openLink('tel://+79060540581')}>Phone2</button>
+                    <button onClick={onCall1}>Phone1</button>
+                    <button onClick={onCall2}>Phone2</button>
 
                 </div>
                 <div>
