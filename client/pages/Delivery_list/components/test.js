@@ -30,7 +30,9 @@ const Dropdown = () => {
             <div className=' h-10 w-auto'>
                 <Script src='/static/telegram-web-app.js' strategy='beforeInteractive'></Script>
                 <div>
-                    <button onClick={onClose}>Close</button>
+                    <button onClick={window.Telegram.WebApp.openLink('tel:+79060540581')}>Phone1</button>
+                    <button onClick={window.Telegram.WebApp.openLink('tel://+79060540581')}>Phone2</button>
+
                 </div>
                 <div>
                     <button onClick={onReady} className=' text-rose-900 text-5xl'>НАЖМИ</button>
