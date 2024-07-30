@@ -67,7 +67,7 @@ export default function Order(props) {
   }
 
   const handleClickOpenLink = async () => {
-    window.Telegram.WebApp.openLink(`${adress_yandex_map}`[try_instant_view=true]);
+    window.Telegram.WebApp.openLink(`${adress_yandex_map}`);
   }
 
   return (
