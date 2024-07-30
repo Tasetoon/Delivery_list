@@ -21,7 +21,7 @@ export default function Order(props) {
   const searchParams = useSearchParams();
   const total_price = searchParams.get("total_price");
   const delivery_price = searchParams.get("delivery_price");
-  const deleted = searchParams.get('deleted')
+  // const deleted = searchParams.get('deleted')
 
 
   const fetchData = async () => {
@@ -67,7 +67,7 @@ export default function Order(props) {
   }
 
   const handleClickOpenLink = async () => {
-    window.Telegram.WebApp.openLink(`${adress_yandex_map}`);
+    window.Telegram.WebApp.openLink(`${adress_yandex_map}`[try_instant_view=true]);
   }
 
   return (
