@@ -21,6 +21,7 @@ export default function Order(props) {
   const searchParams = useSearchParams();
   const total_price = searchParams.get("total_price");
   const delivery_price = searchParams.get("delivery_price");
+  const deleted = searchParams.get('deleted')
 
 
   const fetchData = async () => {
@@ -42,11 +43,13 @@ export default function Order(props) {
     var order_delivery_tmp = 0;
     props.positions.forEach(      
       (pos) => {
-        if(pos.name !== 'Доставка'){
-          order_price_tmp += (pos.amount * pos.price);
-        }
-        else{
-          order_delivery_tmp += pos.price;
+        if(searchParams.get(`deleted${data.order_id}`) !== pos.id){
+          if(pos.name !== 'Доставка'){
+            order_price_tmp += (pos.amount * pos.price);
+          }
+          else{
+            order_delivery_tmp += pos.price;
+          }
         }
       }
     );
@@ -61,6 +64,10 @@ export default function Order(props) {
 
   const handleClickCloseOrder = async (e) => {
     setOrderStyle('hidden');
+  }
+
+  const handleClickOpenLink = async () => {
+    window.Telegram.WebApp.openLink(`${adress_yandex_map}`);
   }
 
   return (
@@ -81,7 +88,7 @@ export default function Order(props) {
       <li key={'additional_contacts'} className="w-full ">Доп. контакты: {data.additional_contacts}</li>
 
       <li key={'adress'} className="w-full ">
-            <a href={adress_yandex_map}>Адрес: {data.adress}</a>
+            <a onClick={handleClickOpenLink}>Адрес: {data.adress}</a>
       </li>
       <li key={'paid'} className="w-full ">{paid}{extra}</li>
       <li key={'customer'} className="w-full ">клиент: {data.customer}</li>
@@ -96,6 +103,7 @@ export default function Order(props) {
             {positions.map(d => (
                 <Position
                   id = {d.id}
+                  order_id = {data.order_id}
                   name = {d.name}
                   amount = {d.amount}
                   price = {d.price}
