@@ -57,3 +57,6 @@ body{
   background-color: var(--tg-theme-section-bg-color);
 }
 
+.link{
+  color: var(--tg-theme-link-color);
+}

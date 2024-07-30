@@ -21,7 +21,7 @@ export default function Order(props) {
   const searchParams = useSearchParams();
   const total_price = searchParams.get("total_price");
   const delivery_price = searchParams.get("delivery_price");
-  // const deleted = searchParams.get('deleted')
+  const deleted = searchParams.get('deleted')
 
 
   const fetchData = async () => {
@@ -66,10 +66,6 @@ export default function Order(props) {
     setOrderStyle('hidden');
   }
 
-  const handleClickOpenLink = async () => {
-    window.Telegram.WebApp.openLink(`${adress_yandex_map}`);
-  }
-
   return (
   <div className={order_style}>
     <div className='flex justify-between'>
@@ -88,7 +84,7 @@ export default function Order(props) {
       <li key={'additional_contacts'} className="w-full ">Доп. контакты: {data.additional_contacts}</li>
 
       <li key={'adress'} className="w-full ">
-            <a onClick={handleClickOpenLink}>Адрес: {data.adress}</a>
+            <a className=' link' href={adress_yandex_map}>Адрес: {data.adress}</a>
       </li>
       <li key={'paid'} className="w-full ">{paid}{extra}</li>
       <li key={'customer'} className="w-full ">клиент: {data.customer}</li>
