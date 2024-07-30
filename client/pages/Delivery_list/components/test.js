@@ -18,15 +18,15 @@ const Dropdown = () => {
       }, [])
 
     const onCall1 = () => {
-        tg.openLink('tel:+79060540581'[try_instant_view=true]);
+        tg.openLink('tel:+79060540581');
     }
 
     const onCall2 = () => {
-        tg.openLink('tel://+79060540581'[try_instant_view=true]);
+        tg.openLink('tel://+79060540581');
     }
 
     const onReady = () => {
-        tg.openLink('https://core.telegram.org/bots/webapps#initializing-mini-apps'[try_instant_view=true]);
+        tg.openLink('https://core.telegram.org/bots/webapps#initializing-mini-apps');
     }
     return (
             <div className=' h-10 w-auto'>
