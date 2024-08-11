@@ -13,7 +13,7 @@ from aiogram.types.inline_keyboard_markup import InlineKeyboardMarkup
 from aiogram.types.inline_keyboard_button import InlineKeyboardButton
 
 # Bot token can be obtained via https://t.me/BotFather
-TOKEN = '7256363548:AAEeh4tzyuAw-A-glei4q9HT4hWQU-Ly334'
+TOKEN = '6344272144:AAEZq2apK3Cs2UbwTV4Ruz5doFq3KmUm7MM'
 
 # All handlers should be attached to the Router (or Dispatcher)
 
@@ -31,7 +31,7 @@ async def command_site_handler(message: Message) -> None:
 
             InlineKeyboardButton(
                 text="Open",
-                web_app=WebAppInfo(url=f'http://5.42.220.196/'),
+                web_app=WebAppInfo(url=f'https://x-cool.ru/'),
             )
         ]]
     )

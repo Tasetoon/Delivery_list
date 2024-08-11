@@ -85,8 +85,8 @@ export default function index() {
   const router = useRouter(); 
 
   const [data, setData] = useState([]);
-  const [total_price, setTotal] = useState();
-  const [delivery_price, setDelivery] = useState();
+  // const [total_price, setTotal] = useState();
+  // const [delivery_price, setDelivery] = useState();
   const [style, setStyle] = useState('hidden');
 
   const searchParams = useSearchParams();
@@ -96,39 +96,38 @@ export default function index() {
     setData(_data.orders); 
   }
 
-  const TotalCount = async () => {
-    var total_price_tmp = 0;
-    var total_delivery_tmp = 0;
-    var order;
-    if(data.length > 0){
-      for(var i = 0; i < data.length; i++){
-        order = data[i].positions;
-        for(var j = 0; j < order.length; j++){
-          var pos = order[j];
-          if(pos.name.slice(0,8) !== 'Доставка'){
-            total_price_tmp += pos.price * pos.amount;
-          }
-          else{
-            total_delivery_tmp += pos.price;
-          }
-      }}
+  // const TotalCount = async () => {
+  //   var total_price_tmp = 0;
+  //   var total_delivery_tmp = 0;
+  //   var order;
+  //   if(data.length > 0){
+  //     for(var i = 0; i < data.length; i++){
+  //       order = data[i].positions;
+  //       for(var j = 0; j < order.length; j++){
+  //         var pos = order[j];
+  //         if(pos.name.slice(0,8) !== 'Доставка'){
+  //           total_price_tmp += pos.price * pos.amount;
+  //         }
+  //         else{
+  //           total_delivery_tmp += pos.price;
+  //         }
+  //     }}
 
-      setTotal(total_price_tmp);
-      setDelivery(total_delivery_tmp);
-    }    
-  };
+  //     setTotal(total_price_tmp);
+  //     setDelivery(total_delivery_tmp);
+  //   }    
+  // };
 
   useEffect(() => {
     fetchData()
-    TotalCount();
-  }, [total_price, delivery_price, data]);
+    // TotalCount();
+  }, [data]);
 
   useEffect(() => {
       const tg = window.Telegram.WebApp;
       tg.MainButton.show();
       tg.MainButton.setText('Посчитать меня');
       tg.onEvent('mainButtonClicked', handleClickResult)
-      
       tg.BackButton.show()
       tg.setHeaderColor('secondary_bg_color');
       tg.setBackgroundColor('secondary_bg_color');
@@ -153,14 +152,14 @@ export default function index() {
 
 
 
-  useEffect(() => {
-    if(total_price){
-      router.replace(
-        `?total_price=${total_price}&delivery_price=${delivery_price}`,
-        {scroll: false}
-      );
-    }
-  }, [total_price, router]);
+  // useEffect(() => {
+  //   if(total_price){
+  //     router.replace(
+  //       `?total_price=${total_price}&delivery_price=${delivery_price}`,
+  //       {scroll: false}
+  //     );
+  //   }
+  // }, [total_price, router]);
 
 
 
