@@ -3,6 +3,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import Router from 'next/router'
 import Order from './components/Order'
 import Script from 'next/script';
+import { useLocalStorage } from './components/useLocalStorage';
 
 
 const _data ={
@@ -82,45 +83,57 @@ const _data ={
 
 
 export default function index() {
-  const router = useRouter(); 
 
   const [data, setData] = useState([]);
-  // const [total_price, setTotal] = useState();
-  // const [delivery_price, setDelivery] = useState();
+  const [total_price, setTotal] = useState();
+  const [delivery_price, setDelivery] = useState();
   const [style, setStyle] = useState('hidden');
 
-  const searchParams = useSearchParams();
 
 
   const fetchData = async () => {
     setData(_data.orders); 
   }
 
-  // const TotalCount = async () => {
-  //   var total_price_tmp = 0;
-  //   var total_delivery_tmp = 0;
-  //   var order;
-  //   if(data.length > 0){
-  //     for(var i = 0; i < data.length; i++){
-  //       order = data[i].positions;
-  //       for(var j = 0; j < order.length; j++){
-  //         var pos = order[j];
-  //         if(pos.name.slice(0,8) !== 'Доставка'){
-  //           total_price_tmp += pos.price * pos.amount;
-  //         }
-  //         else{
-  //           total_delivery_tmp += pos.price;
-  //         }
-  //     }}
+  
+  useEffect(() => {
+    if(data){
+    const listenStorageChange = () => {
+      var total_price_tmp = 0;
+      var total_delivery_tmp = 0;
 
-  //     setTotal(total_price_tmp);
-  //     setDelivery(total_delivery_tmp);
-  //   }    
-  // };
+      data.forEach(
+        (order) => {
+          order.positions.forEach(      
+            (pos) => {
+                if(useLocalStorage(`${order.order_id}/${pos.id}`).getItem()){
+                  var item = useLocalStorage(`${order.order_id}/${pos.id}`).getItem()
+                  if(item.is_delivery){
+                    total_delivery_tmp += item.price
+                  }
+                  else{
+                    total_price_tmp += item.price
+                  }
+                }
+            }
+          );
+        }
+      )
+        
+
+
+      setTotal(total_price_tmp);
+      setDelivery(total_delivery_tmp);
+    }
+    window.addEventListener("storage", listenStorageChange);
+    return () => window.removeEventListener("storage", listenStorageChange);
+    }
+
+    
+}, [data, total_price, delivery_price])
 
   useEffect(() => {
     fetchData()
-    // TotalCount();
   }, [data]);
 
   useEffect(() => {
@@ -151,18 +164,6 @@ export default function index() {
   // }, []);
 
 
-
-  // useEffect(() => {
-  //   if(total_price){
-  //     router.replace(
-  //       `?total_price=${total_price}&delivery_price=${delivery_price}`,
-  //       {scroll: false}
-  //     );
-  //   }
-  // }, [total_price, router]);
-
-
-
   const handleClickRefresh = async (e) => {
     
     window.Telegram.WebApp.showConfirm('Вы уверены? \nЭто сбросит все изменения', [result => {
@@ -175,6 +176,7 @@ export default function index() {
   const handleClickResult = async (e) => {
     window.Telegram.WebApp.MainButton.hide();
     setStyle('m-10 flex');
+    window.dispatchEvent(new Event("storage"));
 
   }
   return (
@@ -207,9 +209,9 @@ export default function index() {
           <div className={style}>
             
               <ul>
-                <li key={'total_price'} className='w-full border-b'>Общая сумма - {searchParams.get('total_price')}</li>
-                <li key={'delivery_price'} className='w-full border-b'>Сумма за доставки - {searchParams.get('delivery_price')}</li>
-                <li key={'to_cashier'} className='w-full border-b '>Вы должны отдать - {searchParams.get('total_price') - searchParams.get('delivery_price')}</li>
+                <li key={'total_price'} className='w-full border-b'>Общая сумма - {total_price}</li>
+                <li key={'delivery_price'} className='w-full border-b'>Сумма за доставки - {delivery_price}</li>
+                <li key={'to_cashier'} className='w-full border-b '>Вы должны отдать - {total_price - delivery_price}</li>
               </ul>
           </div>
           <div className='m-10 mb-3 flex justify-center'>
