@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { useLocalStorage } from './useLocalStorage';
+import { useLocalStorage } from '../../../public/static/useLocalStorage';
 import { useRouter } from 'next/router';
 
 

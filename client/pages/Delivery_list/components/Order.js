@@ -1,7 +1,7 @@
 
 import React, {useEffect, useState} from 'react'
 import Position from './Position';
-import { useLocalStorage } from './useLocalStorage';
+import { useLocalStorage } from '../../../public/static/useLocalStorage';
 
 export default function Order(props) {
 

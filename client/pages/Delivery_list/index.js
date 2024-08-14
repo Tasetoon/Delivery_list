@@ -3,7 +3,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import Router from 'next/router'
 import Order from './components/Order'
 import Script from 'next/script';
-import { useLocalStorage } from './components/useLocalStorage';
+import { useLocalStorage } from '../../public/static/useLocalStorage';
 
 
 const _data ={
