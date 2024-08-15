@@ -75,13 +75,6 @@ export default function position(props){
                 </svg>
             </button>
           </div>     
-          // <input
-          //   name = 'value1'
-          //   type="number"
-          //   min='0'
-          //   onChange={(e) => setAmount(e.target.value) }
-          //   value = {pos_amount}
-          // />
         )
         }
         </li>
@@ -90,15 +83,10 @@ export default function position(props){
             <input className="p-0 w-16 bg-transparent border-0 text-gray-800 text-center focus:ring-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none dark:text-white" style={{appearance: 'textfield'}} type="number"   aria-roledescription="Number field" data-hs-input-number-input=""
               onChange={(e) => parseInt(e.target.value) >= 0 ? setPrice( Math.floor(e.target.value)) : null}
               value = {pos_price}
+              onFocus={() => {window.Telegram.WebApp.MainButton.hide()}}
+              onBlur={() => {window.Telegram.WebApp.MainButton.show()}}
             />
         </div>
-        {/* <input
-          name = 'value1'
-          type="number"
-          min='0'
-          onChange={(e) => setPrice(e.target.value)}
-          value = {pos_price}
-        /> */}
         </li>
         <li className='inline'>
           <p>{pos_amount * pos_price}</p>
