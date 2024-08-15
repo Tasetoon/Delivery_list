@@ -21,7 +21,6 @@ body{
 }
 
 .header{
-  /* background-color: var(--tg-theme-bg-color); */
   top: 0;
   font-size: 3em;
   line-height: 1;
@@ -50,6 +49,17 @@ body{
 
 .main-icon{
   height: 2.5em;
+}
+.increase-button{
+  border-color: var(--tg-theme-hint-color);
+  color:  var(--tg-theme-text-color);
+  background-color: var(--tg-theme-secondary-bg-color)
+}
+.increase-button:hover{
+  background-color: var(--tg-theme-section-header-text-color);
+}
+.increase-button:focus{
+  background-color: var(--tg-theme-section-header-text-color);
 }
 
 
