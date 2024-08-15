@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { useLocalStorage } from '../../../public/static/useLocalStorage';
+import Script from 'next/script';
 
 
 export default function position(props){
@@ -17,6 +18,11 @@ export default function position(props){
     window.dispatchEvent(new Event("storage"));
 
   }
+  useEffect(() => {
+    const tg = window.Telegram.WebApp;
+    tg.MainButton.show();
+    tg.MainButton.setText('Посчитать меня');
+  }, []);
 
 
   useEffect(() => {
@@ -32,6 +38,7 @@ export default function position(props){
   
   return (
     <div className={position_style}>
+      <Script src='/static/telegram-web-app.js' strategy='beforeInteractive'></Script>
       <div className=' flex justify-between'>
         <h1>{props.id}</h1>
         {is_delivery ?(null) : (
@@ -54,9 +61,11 @@ export default function position(props){
                 </svg>
             </button>
 
-            <input className="p-0 w-6 bg-transparent border-0 text-gray-800 text-center focus:ring-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none dark:text-white" style={{appearance: 'textfield'}} type="number" min=''  aria-roledescription="Number field" data-hs-input-number-input=""
-              onChange={(e) => parseInt(e.target.value) >= 0 ? setAmount( Math.floor(e.target.value)) : null}
+            <input  className="p-0 w-6 bg-transparent border-0 text-gray-800 text-center focus:ring-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none dark:text-white" style={{appearance: 'textfield'}} type="number" min=''  aria-roledescription="Number field" data-hs-input-number-input=""
+              onChange={(e) => {parseInt(e.target.value) >= 0 ? setAmount( Math.floor(e.target.value)) : null;}}
               value = {pos_amount}
+              onFocus={() => {window.Telegram.WebApp.MainButton.disable()
+               }}
             />
             
             <button type="button" className="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border increase-button disabled:pointer-events-none" tabIndex="-1" onClick={() => setAmount(pos_amount+1)} aria-label="Increase" data-hs-input-number-increment="">
