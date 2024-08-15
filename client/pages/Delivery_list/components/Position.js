@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import { useLocalStorage } from '../../../public/static/useLocalStorage';
-import { useRouter } from 'next/router';
-
 
 
 export default function position(props){
@@ -34,7 +32,6 @@ export default function position(props){
   
 
   
-
   return (
     <div className={position_style}>
       <div className=' flex justify-between'>
@@ -50,25 +47,51 @@ export default function position(props){
         </li>
         <li className='inline'>
         {is_delivery ?(<p>{props.amount}</p>) :    
-        (     
-          <input
-            name = 'value1'
-            type="number"
-            min='0'
-            onChange={(e) => setAmount(e.target.value) }
-            value = {pos_amount}
-          />
+        (
+          <div class="flex items-center gap-x-1.5">
+            <button type="button" class="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" tabindex="-1" onClick={() => setAmount(pos_amount-1)} aria-label="Decrease" data-hs-input-number-decrement="">
+            
+                <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"></path>
+                </svg>
+            </button>
+
+            <input class="p-0 w-6 bg-transparent border-0 text-gray-800 text-center focus:ring-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none dark:text-white" style={{appearance: 'textfield'}} type="number"  aria-roledescription="Number field" data-hs-input-number-input=""
+              onChange={(e) => setAmount(e.target.value)}
+              value = {pos_amount}
+            />
+            
+            <button type="button" class="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" tabindex="-1" onClick={() => setAmount(pos_amount+1)} aria-label="Increase" data-hs-input-number-increment="">
+                <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5v14"></path>
+                </svg>
+            </button>
+          </div>     
+          // <input
+          //   name = 'value1'
+          //   type="number"
+          //   min='0'
+          //   onChange={(e) => setAmount(e.target.value) }
+          //   value = {pos_amount}
+          // />
         )
         }
         </li>
         <li className='inline'>
-        <input
+        <div class="flex items-center gap-x-1.5">
+            <input class="p-0 w-16 bg-transparent border-0 text-gray-800 text-center focus:ring-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none dark:text-white" style={{appearance: 'textfield'}} type="number"  aria-roledescription="Number field" data-hs-input-number-input=""
+              onChange={(e) => setPrice(e.target.value)}
+              value = {pos_price}
+            />
+        </div>
+        {/* <input
           name = 'value1'
           type="number"
           min='0'
           onChange={(e) => setPrice(e.target.value)}
           value = {pos_price}
-        />
+        /> */}
         </li>
         <li className='inline'>
           <p>{pos_amount * pos_price}</p>
