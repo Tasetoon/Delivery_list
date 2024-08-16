@@ -42,7 +42,7 @@ export default function position(props){
       <div className=' flex justify-between'>
         <h1>{props.id}</h1>
         {is_delivery ?(null) : (
-          <button type="button" onClick={handleClickClosePosition} className="rounded-md inline-flex items-center justify-center">
+          <button type="button" onClick={handleClickClosePosition} className="rounded-md inline-flex items-center justify-center cross-image">
             <span class="sr-only">Close menu</span>
             <svg class="h-3 w-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />

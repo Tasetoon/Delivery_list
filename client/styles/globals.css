@@ -43,12 +43,12 @@ body{
   height: 1.5em;
 }
 
-.cross_image{
+.cross-image{
   background-color: var(--tg-theme-destructive-text-color);
   padding: 0.35em;
   color: var(--tg-theme-text-color);
 }
-.cross_image:hover{
+.cross-image:hover{
   background-color: var(--tg-theme-secondary-bg-color)
 }
 
