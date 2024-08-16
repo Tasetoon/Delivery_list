@@ -164,16 +164,17 @@ export default function index() {
   // }, []);
 
 
-  const handleClickRefresh = async (e) => {
-    
-    window.Telegram.WebApp.showConfirm('Вы уверены? \nЭто сбросит все изменения', [(result) => {
-      if(result) {
-        Router.reload();
-      }
-    }]);
+  const handleClickRefresh = async () => {
+    window.Telegram.WebApp.showConfirm('Вы уверены? \nЭто сбросит все изменения', [(flag) => { flag ? window.Telegram.WebApp.BackButton.hide() : null } ])
+    //   if(result) {
+    //     Router.reload();
+    //     window.Telegram.WebApp.BackButton.hide();
+    //   }
+    // }]
+  
   }
 
-  const handleClickResult = async (e) => {
+  const handleClickResult = async () => {
     window.Telegram.WebApp.MainButton.hide();
     setStyle('m-10 flex');
     window.dispatchEvent(new Event("storage"));
