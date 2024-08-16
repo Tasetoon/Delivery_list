@@ -165,7 +165,7 @@ export default function index() {
 
 
   const handleClickRefresh = async () => {
-    window.Telegram.WebApp.showConfirm('Вы уверены? \nЭто сбросит все изменения', [(flag) => { flag ? window.Telegram.WebApp.BackButton.hide() : null } ])
+    window.Telegram.WebApp.showConfirm('Вы уверены? \nЭто сбросит все изменения', [callback, callback ? Router.reload() : null])
     //   if(result) {
     //     Router.reload();
     //     window.Telegram.WebApp.BackButton.hide();
