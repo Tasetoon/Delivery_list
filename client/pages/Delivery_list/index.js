@@ -161,8 +161,8 @@ export default function index() {
       window.Telegram.WebApp.MainButton.hide() :
 
       window.Telegram.WebApp.MainButton.show();
-      
-    }, [pathname, searchParams])
+
+    }, [])
 
   // useEffect(() => {
   // fetch('http://5.42.220.196/orders')
@@ -189,7 +189,7 @@ export default function index() {
     setStyle('m-10 flex');
     window.dispatchEvent(new Event("storage"));
     router.replace({
-      pathname: pathname,
+      pathname: '#result',
       query: {mainButtonClicked: true},
     }) 
 
@@ -221,7 +221,7 @@ export default function index() {
               )}
           </div>
           
-          <div className={style}>
+          <div id='result' className={style}>
             
               <ul>
                 <li key={'total_price'} className='w-full border-b'>Общая сумма - {total_price}</li>
