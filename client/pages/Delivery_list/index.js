@@ -1,10 +1,8 @@
 import React, {useEffect, useStatem, useRef, useState} from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
 import Router from 'next/router'
 import Order from './components/Order'
 import Script from 'next/script';
 import { useLocalStorage } from '../../public/static/useLocalStorage';
-
 
 const _data ={
   'orders': [{
@@ -86,6 +84,7 @@ export default function index() {
 
   const [data, setData] = useState([]);
   const [total_price, setTotal] = useState();
+  const [user_id, setUserId] = useState('');
   const [delivery_price, setDelivery] = useState();
   const [style, setStyle] = useState('hidden');
 
@@ -149,6 +148,8 @@ export default function index() {
         tg.MainButton.hide();
         Router.back();
       })
+      tg.initDataUnsafe.user ? setUserId(tg.initDataUnsafe.user.username) : null;
+      
     }, []);
   
 
@@ -165,17 +166,10 @@ export default function index() {
 
 
   const handleClickRefresh = async () => {
-
     function callback(flag) {
       if(flag) Router.reload();
     }
-
     window.Telegram.WebApp.showConfirm('Вы уверены? \nЭто сбросит все изменения', callback)
-    //   if(result) {
-    //     Router.reload();
-    //     window.Telegram.WebApp.BackButton.hide();
-    //   }
-    // }]
   
   }
 
@@ -191,7 +185,7 @@ export default function index() {
         <Script src='/static/telegram-web-app.js' strategy='beforeInteractive'></Script>
         <div className='text-center '>
           <h1 className='text-9xl'>📋</h1>
-          <h1 className='m-5'>Маршрутный Лист</h1>
+          <h1 className='m-5'>Маршрутный Лист для {user_id}</h1>
         </div>
       </header>
       <main className='main'>
