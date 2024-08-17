@@ -52,6 +52,14 @@ body{
   background-color: var(--tg-theme-secondary-bg-color)
 }
 
+.refresh-button{
+  background-color: var(--tg-theme-accent-text-color);
+  color: var(--tg-theme-button-text-color);
+}
+.refresh-button:hover{
+  background-color: var(--tg-theme-subtitle-text-color);
+}
+
 .main-icon{
   height: 2.5em;
 }
