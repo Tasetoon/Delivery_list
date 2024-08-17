@@ -46,7 +46,7 @@ body{
 .cross-image{
   background-color: var(--tg-theme-destructive-text-color);
   padding: 0.35em;
-  color: var(--tg-theme-text-color);
+  color: var(--tg-theme-secondary-bg-color);
 }
 .cross-image:hover{
   background-color: var(--tg-theme-secondary-bg-color)

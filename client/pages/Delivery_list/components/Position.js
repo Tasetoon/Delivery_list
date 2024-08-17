@@ -25,7 +25,7 @@ export default function position(props){
           setPositionStyle('hidden');
           removeItem(`${props.order_id}/${props.id}`);
           window.dispatchEvent(new Event("storage"));
-          router.replace(`?mainButtonClicked=false`,'', {scroll: false})
+          router.replace(`?mainButtonClicked=false`, undefined, {scroll: false})
         }
       }
       window.Telegram.WebApp.showConfirm('Вы уверены? \nВы вносите изменения после подсчета!', callback)
@@ -34,8 +34,6 @@ export default function position(props){
       setPositionStyle('hidden');
       removeItem(`${props.order_id}/${props.id}`);
       window.dispatchEvent(new Event("storage"));
-
-
     }
 
   }
@@ -87,21 +85,58 @@ export default function position(props){
         {is_delivery ?(<p>{props.amount}</p>) :    
         (
           <div className="flex items-center gap-x-1.5">
-            <button type="button" className="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border increase-button disabled:opacity-50 disabled:pointer-events-none" tabIndex="-1" onClick={() => pos_amount > 0 ? setAmount(pos_amount-1): null} aria-label="Decrease" data-hs-input-number-decrement="">
-            
+            <button type="button" className="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border increase-button disabled:opacity-50 disabled:pointer-events-none" tabIndex="-1" 
+            onClick={() => {
+              if(mainButtonClicked){
+                function callback(flag) {
+                  if(flag){
+                    pos_amount > 0 ? setAmount(pos_amount-1): null;
+                  }}
+                window.Telegram.WebApp.showConfirm('Вы уверены? \nВы вносите изменения после подсчета!', callback)
+              }
+              else{
+                pos_amount > 0 ? setAmount(pos_amount-1): null;
+              } 
+            }} 
+            aria-label="Decrease" data-hs-input-number-decrement="">
                 <svg className="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M5 12h14"></path>
                 </svg>
             </button>
 
             <input  className="p-0 w-6 bg-transparent border-0 text-center focus:ring-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" style={{appearance: 'textfield'}} type="number" min=''  aria-roledescription="Number field" data-hs-input-number-input=""
-              onChange={(e) => { parseInt(e.target.value) >= 0 ? setAmount( Math.floor(e.target.value)) : null; }}
+              onChange={
+                (e) => {
+                  if(mainButtonClicked){
+                    function callback(flag) {
+                      if(flag){
+                        parseInt(e.target.value) >= 0 ? setAmount( Math.floor(e.target.value)) : null; 
+                      }}
+                    window.Telegram.WebApp.showConfirm('Вы уверены? \nВы вносите изменения после подсчета!', callback)
+                  }
+                  else{
+                    parseInt(e.target.value) >= 0 ? setAmount( Math.floor(e.target.value)) : null;
+                  } 
+                  
+
+                }}
               value = {pos_amount}
-              onFocus={() => { !props.main_btn ? window.Telegram.WebApp.MainButton.hide() : null} }
-              onBlur={() => { !props.main_btn ? window.Telegram.WebApp.MainButton.show() : null}}
+              onFocus={() => { window.Telegram.WebApp.MainButton.hide() } }
+              onBlur={() => { !mainButtonClicked ? window.Telegram.WebApp.MainButton.show() : null }}
             />
             
-            <button type="button" className="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border increase-button disabled:pointer-events-none" tabIndex="-1" onClick={() => setAmount(pos_amount+1)} aria-label="Increase" data-hs-input-number-increment="">
+            <button type="button" className="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border increase-button disabled:pointer-events-none" tabIndex="-1" 
+            onClick={() => {
+              if(mainButtonClicked){
+                function callback(flag) {
+                  if(flag){
+                    setAmount(pos_amount+1);
+                  }}
+                window.Telegram.WebApp.showConfirm('Вы уверены? \nВы вносите изменения после подсчета!', callback)
+              }
+              else setAmount(pos_amount+1);
+            }}
+            aria-label="Increase" data-hs-input-number-increment="">
                 <svg className="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M5 12h14"></path>
                     <path d="M12 5v14"></path>
@@ -114,10 +149,21 @@ export default function position(props){
         <li className='inline'>
         <div className="flex items-center gap-x-1.5">
             <input className="p-0 w-16 bg-transparent border-0 text-center focus:ring-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" style={{appearance: 'textfield'}} type="number"   aria-roledescription="Number field" data-hs-input-number-input=""
-              onChange={(e) => parseInt(e.target.value) >= 0 ? setPrice( Math.floor(e.target.value)) : null}
+              onChange={
+                (e) => {
+                  if(mainButtonClicked){
+                    function callback(flag) {
+                      if(flag){
+                        parseInt(e.target.value) >= 0 ? setPrice( Math.floor(e.target.value)) : null; 
+                      }}
+                    window.Telegram.WebApp.showConfirm('Вы уверены? \nВы вносите изменения после подсчета!', callback)}
+                  else{
+                    parseInt(e.target.value) >= 0 ? setAmount( Math.floor(e.target.value)) : null;
+                  } 
+                }}
               value = {pos_price}
-              onFocus={() => {window.Telegram.WebApp.MainButton.hide()}}
-              onBlur={() => {window.Telegram.WebApp.MainButton.show()}}
+              onFocus={() => { window.Telegram.WebApp.MainButton.hide() }}
+              onBlur={() => { !mainButtonClicked ? window.Telegram.WebApp.MainButton.show() : null }}
             />
         </div>
         </li>

@@ -2,8 +2,13 @@
 import React, {useEffect, useState} from 'react'
 import Position from './Position';
 import { useLocalStorage } from '../../../public/static/useLocalStorage';
+import { useRouter } from 'next/router';
+import { usePathname, useSearchParams } from 'next/navigation';
 
 export default function Order(props) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams()
 
   const [adress_yandex_map, setAdressurl] = useState('');
   const [paid, setPaid] = useState('');
@@ -80,7 +85,7 @@ export default function Order(props) {
             }
           );
           window.dispatchEvent(new Event("storage"));
-          router.replace(`?mainButtonClicked=false`, {scroll: false})
+          router.replace(`?mainButtonClicked=false`,undefined, {scroll: false})
         }
       }
       window.Telegram.WebApp.showConfirm('Вы уверены? \nВы вносите изменения после подсчета!', callback)
@@ -94,12 +99,17 @@ export default function Order(props) {
       );
       window.dispatchEvent(new Event("storage"));
     }
-
-    
-
-
-
   }
+  useEffect(() => {
+    if(searchParams.get('mainButtonClicked') === 'true'){
+      setMainButtonClicked(true);
+
+    }
+    else if(searchParams.get('mainButtonClicked') === 'false'){
+      setMainButtonClicked(false);
+    }
+
+  }, [pathname, searchParams, router])
 
   return (
   <div className={order_style}>
