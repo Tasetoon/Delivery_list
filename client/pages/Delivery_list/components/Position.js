@@ -25,12 +25,7 @@ export default function position(props){
           setPositionStyle('hidden');
           removeItem(`${props.order_id}/${props.id}`);
           window.dispatchEvent(new Event("storage"));
-          router.replace(
-            {
-            pathname: pathname,
-            query: {mainButtonClicked: false},
-            scr
-          }, {scroll: false})
+          router.replace(`?mainButtonClicked=false`)
         }
       }
       window.Telegram.WebApp.showConfirm('Вы уверены? \nВы вносите изменения после подсчета!', callback)
@@ -39,7 +34,6 @@ export default function position(props){
       setPositionStyle('hidden');
       removeItem(`${props.order_id}/${props.id}`);
       window.dispatchEvent(new Event("storage"));
-      console.log(pathname);
     }
 
   }
