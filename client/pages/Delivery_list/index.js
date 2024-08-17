@@ -3,6 +3,7 @@ import Router from 'next/router'
 import Order from './components/Order'
 import Script from 'next/script';
 import { useLocalStorage } from '../../public/static/useLocalStorage';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 const _data ={
   'orders': [{
@@ -81,13 +82,15 @@ const _data ={
 
 
 export default function index() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   const [data, setData] = useState([]);
   const [total_price, setTotal] = useState();
   const [user_id, setUserId] = useState('');
   const [delivery_price, setDelivery] = useState();
   const [style, setStyle] = useState('hidden');
-  const [mainButtonClicked, setMainButtonClicked] = useState(false);
 
 
 
@@ -138,7 +141,6 @@ export default function index() {
 
   useEffect(() => {
       const tg = window.Telegram.WebApp;
-      tg.MainButton.show();
       tg.MainButton.setText('Посчитать меня');
       tg.onEvent('mainButtonClicked', handleClickResult)
       tg.BackButton.show()
@@ -153,6 +155,14 @@ export default function index() {
       
     }, []);
   
+    useEffect(() => {
+      searchParams.get('mainButtonClicked') ?
+
+      window.Telegram.WebApp.MainButton.hide() :
+
+      window.Telegram.WebApp.MainButton.show();
+      
+    }, [pathname, searchParams])
 
   // useEffect(() => {
   // fetch('http://5.42.220.196/orders')
@@ -178,7 +188,10 @@ export default function index() {
     window.Telegram.WebApp.MainButton.hide();
     setStyle('m-10 flex');
     window.dispatchEvent(new Event("storage"));
-    setMainButtonClicked(true);
+    router.replace({
+      pathname: pathname,
+      query: {mainButtonClicked: true},
+    }) 
 
   }
   return (
@@ -200,7 +213,6 @@ export default function index() {
                     input_data = {order}
                     positions = {order.positions}
                     key = {order.order_id}
-                    main_btn = {mainButtonClicked}
                   />
                 ))}
             </div>

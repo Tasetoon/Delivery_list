@@ -112,7 +112,7 @@ export default function Order(props) {
                   amount = {d.amount}
                   price = {d.price}
                   key = {d.id}
-                  main_btn = {props.main_btn}
+                  // main_btn = {props.main_btn}
                 />
               ))}
               </div>
