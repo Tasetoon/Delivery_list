@@ -87,6 +87,7 @@ export default function index() {
   const [user_id, setUserId] = useState('');
   const [delivery_price, setDelivery] = useState();
   const [style, setStyle] = useState('hidden');
+  const [mainButtonClicked, setMainButtonClicked] = useState(false);
 
 
 
@@ -177,6 +178,7 @@ export default function index() {
     window.Telegram.WebApp.MainButton.hide();
     setStyle('m-10 flex');
     window.dispatchEvent(new Event("storage"));
+    setMainButtonClicked(true);
 
   }
   return (
@@ -185,7 +187,7 @@ export default function index() {
         <Script src='/static/telegram-web-app.js' strategy='beforeInteractive'></Script>
         <div className='text-center '>
           <h1 className='text-9xl'>📋</h1>
-          <h1 className='m-5'>Маршрутный Лист для {user_id}</h1>
+          <h1 className='m-5'>Маршрутный Лист для @{user_id}</h1>
         </div>
       </header>
       <main className='main'>
@@ -198,6 +200,7 @@ export default function index() {
                     input_data = {order}
                     positions = {order.positions}
                     key = {order.order_id}
+                    main_btn = {mainButtonClicked}
                   />
                 ))}
             </div>
