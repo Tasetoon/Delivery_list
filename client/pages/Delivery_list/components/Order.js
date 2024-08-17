@@ -70,13 +70,32 @@ export default function Order(props) {
 
 
   const handleClickCloseOrder = async () => {
-    setOrderStyle('hidden');
-    props.positions.forEach(      
-      (pos) => {
-        useLocalStorage(`${data.order_id}/${pos.id}`).removeItem();
+    if(mainButtonClicked){
+      function callback(flag) {
+        if(flag){
+          setOrderStyle('hidden');
+          props.positions.forEach(      
+            (pos) => {
+              useLocalStorage(`${data.order_id}/${pos.id}`).removeItem();
+            }
+          );
+          window.dispatchEvent(new Event("storage"));
+          router.replace(`?mainButtonClicked=false`, {scroll: false})
+        }
       }
-    );
-    window.dispatchEvent(new Event("storage"));
+      window.Telegram.WebApp.showConfirm('Вы уверены? \nВы вносите изменения после подсчета!', callback)
+    }
+    else{
+      setOrderStyle('hidden');
+      props.positions.forEach(      
+        (pos) => {
+          useLocalStorage(`${data.order_id}/${pos.id}`).removeItem();
+        }
+      );
+      window.dispatchEvent(new Event("storage"));
+    }
+
+    
 
 
 

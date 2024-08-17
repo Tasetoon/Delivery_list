@@ -137,7 +137,7 @@ export default function index() {
 
   useEffect(() => {
     fetchData()
-    router.replace(`?mainButtonClicked=false`)
+    router.replace(`?mainButtonClicked=false` , {scroll: false})
   }, [data]);
 
   useEffect(() => {
@@ -192,7 +192,7 @@ export default function index() {
   const handleClickResult = async () => {
     window.Telegram.WebApp.MainButton.hide();
     window.dispatchEvent(new Event("storage"));
-    router.replace(`?mainButtonClicked=true#result`)
+    router.replace(`?mainButtonClicked=true#result`, {scroll: false})
   }
   return (
     <div className='wrapper'>
