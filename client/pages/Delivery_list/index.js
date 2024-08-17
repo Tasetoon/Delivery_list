@@ -162,7 +162,7 @@ export default function index() {
 
       window.Telegram.WebApp.MainButton.show();
 
-    }, [])
+    }, [searchParams, router])
 
   // useEffect(() => {
   // fetch('http://5.42.220.196/orders')
