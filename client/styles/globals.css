@@ -56,11 +56,7 @@ body{
   background-color: var(--tg-theme-accent-text-color);
   color: var(--tg-theme-button-text-color);
 }
-.refresh-button-disable{
-  background-color: var(--tg-theme-accent-text-color);
-  color: var(--tg-theme-button-text-color);
-}
-.refresh-button:active{
+.refresh-button:hover, .refresh-button:focus, .refresh-button:active{
   background-color: var(--tg-theme-subtitle-text-color);
 }
 
