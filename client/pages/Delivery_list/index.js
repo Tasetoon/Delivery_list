@@ -156,11 +156,13 @@ export default function index() {
     }, []);
   
     useEffect(() => {
-      searchParams.get('mainButtonClicked') ?
+      if(searchParams.get('mainButtonClicked') === 'true'){
+        window.Telegram.WebApp.MainButton.hide()
 
-      window.Telegram.WebApp.MainButton.hide() :
-
-      window.Telegram.WebApp.MainButton.show();
+      }
+      else if(searchParams.get('mainButtonClicked') === 'false'){
+        window.Telegram.WebApp.MainButton.show();
+      }
 
     }, [searchParams, router])
 
