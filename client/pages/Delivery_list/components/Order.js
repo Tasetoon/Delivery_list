@@ -10,6 +10,7 @@ export default function Order(props) {
   const pathname = usePathname();
   const searchParams = useSearchParams()
 
+  const [mainButtonClicked, setMainButtonClicked] = useState(false);
   const [adress_yandex_map, setAdressurl] = useState('');
   const [paid, setPaid] = useState('');
   const [extra, setExtra] = useState('');
