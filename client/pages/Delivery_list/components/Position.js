@@ -52,13 +52,15 @@ export default function position(props){
 
 
   useEffect(() => {
-    searchParams.get('mainButtonClicked') ?
+    if(searchParams.get('mainButtonClicked') === 'true'){
+      setMainButtonClicked(true);
 
-      setMainButtonClicked(true) :
-
+    }
+    else if(searchParams.get('mainButtonClicked') === 'false'){
       setMainButtonClicked(false);
+    }
 
-  }, [pathname, searchParams])
+  }, [pathname, searchParams, router])
   
   return (
     <div className={position_style}>

@@ -137,6 +137,7 @@ export default function index() {
 
   useEffect(() => {
     fetchData()
+    router.replace(`?mainButtonClicked=false`)
   }, [data]);
 
   useEffect(() => {
@@ -157,14 +158,16 @@ export default function index() {
   
     useEffect(() => {
       if(searchParams.get('mainButtonClicked') === 'true'){
-        window.Telegram.WebApp.MainButton.hide()
+        window.Telegram.WebApp.MainButton.hide();
+        setStyle('m-10 flex');
 
       }
       else if(searchParams.get('mainButtonClicked') === 'false'){
         window.Telegram.WebApp.MainButton.show();
+        setStyle('hidden');
       }
 
-    }, [searchParams, router])
+    }, [searchParams, router, pathname])
 
   // useEffect(() => {
   // fetch('http://5.42.220.196/orders')
@@ -188,7 +191,6 @@ export default function index() {
 
   const handleClickResult = async () => {
     window.Telegram.WebApp.MainButton.hide();
-    setStyle('m-10 flex');
     window.dispatchEvent(new Event("storage"));
     router.replace(`?mainButtonClicked=true#result`)
   }
