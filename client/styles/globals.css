@@ -76,9 +76,40 @@ body{
   background-color: var(--tg-theme-section-header-text-color);
 }
 
+.order{
+  padding-left: 0.75rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
 
 .section{
   background-color: var(--tg-theme-section-bg-color);
+}
+.section-header{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+  color:var(--tg-theme-section-header-text-color);
+}
+
+.result-position{
+  color: var(--tg-theme-subtitle-text-color);
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  margin-top: 0.75rem;
+
+}
+
+.list-element{
+  margin-bottom: 1em;
+}
+.separetor{
+  border-bottom-width: 1px;
+  border-color: black;
 }
 
 .link{

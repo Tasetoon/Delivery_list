@@ -11,7 +11,7 @@ export default function position(props){
   const searchParams = useSearchParams()
 
   const [mainButtonClicked, setMainButtonClicked] = useState(false);
-  const [position_style, setPositionStyle] = useState('border-b border-gray-900');
+  const [position_style, setPositionStyle] = useState('separetor pb-1');
   const [pos_name, setName] = useState("");
   const [pos_amount, setAmount] = useState(props.amount);
   const [pos_price, setPrice] = useState(props.price);
@@ -66,7 +66,7 @@ export default function position(props){
     <div className={position_style}>
       <Script src='/static/telegram-web-app.js' strategy='beforeInteractive'></Script>
       <div className=' flex justify-between'>
-        <h1>{props.id}</h1>
+        <h1 className='text-xl'>{props.id}</h1>
         {is_delivery ?(null) : (
           <button type="button" onClick={handleClickClosePosition} className="rounded-md inline-flex items-center justify-center cross-image">
             <span className="sr-only">Close menu</span>
@@ -82,7 +82,7 @@ export default function position(props){
           <p>{props.name}</p>
         </li>
         <li className='inline'>
-        {is_delivery ?(<p>{props.amount}</p>) :    
+        {is_delivery ?(<p className='flex justify-center'>{props.amount}</p>) :    
         (
           <div className="flex items-center gap-x-1.5">
             <button type="button" className="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border increase-button disabled:opacity-50 disabled:pointer-events-none" tabIndex="-1" 
