@@ -20,7 +20,7 @@ export default function Order(props) {
 
   const [mainButtonClicked, setMainButtonClicked] = useState(false);
   const [adress_yandex_map, setAdressurl] = useState('');
-  const [paid, setPaid] = useState('');
+  const [paid, setPaid] = useState();
   const [extra, setExtra] = useState();
   const [order_style, setOrderStyle] = useState('m-2 flex flex-col font-medium rounded-lg p-3 section');
   const [order_id, setOrderId] = useState();
@@ -80,7 +80,7 @@ export default function Order(props) {
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [data])
 
 
   const handleClickCloseOrder = async () => {
