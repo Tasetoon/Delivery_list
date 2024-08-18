@@ -95,7 +95,7 @@ body{
   display: flex;
   align-self: center;
   margin-right: 0.5em;
-  fill: var(--tg-theme-bg-color);
+  fill: var(--tg-theme-text-color);
 }
 .mini-logo-metro{
   height: 1.8em;
@@ -103,5 +103,5 @@ body{
   display: flex;
   align-self: flex-end;
   margin-right: 0.5em;
-  fill: var(--tg-theme-bg-color);
+  fill: var(--tg-theme-text-color);
 }
