@@ -65,12 +65,12 @@ export default function position(props){
   return (
     <div className={position_style}>
       <Script src='/static/telegram-web-app.js' strategy='beforeInteractive'></Script>
-      <div className=' flex justify-between'>
+      <div className=' flex justify-between mr-1 mb-2'>
         <h1 className='text-xl'>{props.id}</h1>
         {is_delivery ?(null) : (
           <button type="button" onClick={handleClickClosePosition} className="rounded-md inline-flex items-center justify-center cross-image">
             <span className="sr-only">Close menu</span>
-            <svg className="h-3 w-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>

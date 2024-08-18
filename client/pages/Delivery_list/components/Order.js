@@ -124,7 +124,7 @@ export default function Order(props) {
   <div className={order_style}>
     <div className='flex justify-between mb-2'>
       <h1 className=' text-xl'>Заказ: {data.order_id}</h1>
-      <button type="button" onClick={handleClickCloseOrder} class=" rounded-md inline-flex items-center justify-center cross-image">
+      <button type="button" onClick={handleClickCloseOrder} className="rounded-md inline-flex items-center justify-center cross-image mr-3">
               <span class="sr-only">Close menu</span>
               <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M 6 18 L 18 6 M 6 6 l 12 12" />
