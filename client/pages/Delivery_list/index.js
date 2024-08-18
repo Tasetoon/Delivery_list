@@ -200,7 +200,8 @@ export default function index() {
         <Script src='/static/telegram-web-app.js' strategy='beforeInteractive'></Script>
         <div id='test' className='text-center '>
           <h1 className='text-9xl'>📋</h1>
-          <h1 className='m-5'>Маршрутный Лист для @{user_id}</h1>
+          <h1 className='m-5 text-4xl'>Маршрутный Лист</h1>
+          <h1 className='text-4xl subtitle-text'>@{user_id ? user_id : 'user_id'}</h1>
         </div>
       </header>
       <main className='main'>

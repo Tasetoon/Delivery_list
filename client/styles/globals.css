@@ -84,3 +84,24 @@ body{
 .link{
   color: var(--tg-theme-link-color);
 }
+
+.subtitle-text{
+  color: var(--tg-theme-subtitle-text-color);
+}
+
+.mini-logo{
+  height: 1em;
+  width: 1em;
+  display: flex;
+  align-self: center;
+  margin-right: 0.5em;
+  fill: var(--tg-theme-bg-color);
+}
+.mini-logo-metro{
+  height: 1.8em;
+  width: 1em;
+  display: flex;
+  align-self: flex-end;
+  margin-right: 0.5em;
+  fill: var(--tg-theme-bg-color);
+}

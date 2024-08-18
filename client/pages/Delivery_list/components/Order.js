@@ -4,6 +4,14 @@ import Position from './Position';
 import { useLocalStorage } from '../../../public/static/useLocalStorage';
 import { useRouter } from 'next/router';
 import { usePathname, useSearchParams } from 'next/navigation';
+import PhoneCallLogo from '../../../public/static/icons/PhoneCallLogo'
+import LocationLogo from '../../../public/static/icons/LocationLogo'
+import ClientLogo from '../../../public/static/icons/ClientLogo'
+import MetroLogo from '../../../public/static/icons/MetroLogo'
+import ClockLogo from '../../../public/static/icons/ClockLogo'
+import CheckMarkLogo from '../../../public/static/icons/CheckMarkLogo'
+import CrossLogo from '../../../public/static/icons/CrossLogo'
+
 
 export default function Order(props) {
   const router = useRouter();
@@ -13,7 +21,7 @@ export default function Order(props) {
   const [mainButtonClicked, setMainButtonClicked] = useState(false);
   const [adress_yandex_map, setAdressurl] = useState('');
   const [paid, setPaid] = useState('');
-  const [extra, setExtra] = useState('');
+  const [extra, setExtra] = useState();
   const [order_style, setOrderStyle] = useState('m-2 flex flex-col font-medium rounded-lg p-3 section');
   const [order_id, setOrderId] = useState();
   const [phone, setPhone] = useState('');
@@ -115,22 +123,65 @@ export default function Order(props) {
   return (
   <div className={order_style}>
     <div className='flex justify-between'>
-      <h1 className=' text-xl'>Номер заказа: {data.order_id}</h1>
-      <img onClick={handleClickCloseOrder} className='cross_img self-end' src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAADuUlEQVR4nO2dPW8TQRCGLRD8GNrkNqHkxk6HCB+GAiWiQUQp+QN0iEAqGgpKIpD4RmkQSp0SSgzhQ0ABSgQSufGikMSL1o4FsnDss293ZtfzStPGmee5vd27tbylkkQikUgkEolEIpFIJBKJRJIjpnrkcAbj5xCSuwiqlqUKEZSJqbJWTzXbY1ZOztqeWVwkmzBxOkvVe2pA6L/ebZbHT5GBN9XqQQS1yACEIR0ZkNwwV0oHvAsQ+OpfCQvebzvUVx4yq3qqpr3At5OPvf9RN4zMKkuTD14m5tZqh75hZFhZqqrOBSAk96gbRa6VqiX3AtLkLXmjwLZq7gVAkjFo1PCsJPMggLpJxbpEAIgA8qsQZQTQg0C5BdHDQIIKcg6oT5cNVibJ4Y2kgPrJKbP78pXZXn5mcOqoF0h6bqZZIy+gvgffbPxolg8J+uJ50/j42TQ+fTF6bnZ0R0AnfONBQht++7NcSAhCQDf4xqGETviuJLAX0Au+cSChG3wXEtgL+H37Vk/4pi3h6eOhV0e94Bctgb0AC3T70YP+JSwPPhL6hf9XwMwICPAkQRPAD0eAYwmaCH5YAhxJ0ITwwxMAxUqghh+mAChGAgf44QqA4SRwgR+2ABhMgr40ywZ++AIgvwTzdZ0N/DgEwAASmMCPRwAUJ8En/LgEwPASfMOPTwAMLoECfpwCoCVh58Xz/gV82zB6/oL//zNWATrHOv9/zwkiwDN8QyghqhGgh4BPJSEaAboA+BQSohCgC4TvW0LwAnTOF2t5Vkc+JAQtQA/yVrP5nHCfjYRgBehhXikzkhCkAF3E+3wmEoIToIvcTGEgISgB2sVOFrGEYAQ43Uas0EkIQoCXPdwKjQT2ArxuoFcmzfaTh/m+i1qeiFvAzsqKH/iQfyRs3VyMfwTUjx8zu6urfuBD/xKKgB+EgF4SGq52svaRUBT8YAR0k9BwvY3YKWH9u9lavFroZwQjoFNCw9cebluCA/jBCcA9CXZi9rqBXpk0vy7PO/nbwQnAyEoEgAggvwpRRgA9CJRbED0MJCiZAyB6AfKjfdhNQJr8dC8gVW+orzLkWql67V5A64wA+maBZd1xLsAeXsCgUcOxNlN1xrkAMzZ2CCFZo24WmZU9xMLbqRr25AjqhpFZ1UGdKPmMPTmCumlkUhmoayXfscd2ZGlynbp5JIefLJAcYdKOPTliNOeEZM37bWe/idkeXmB/P9+uheN8WEuyZm+pWrKrHdszNXeJRCKRSCQSiUQikUgkEkkpqPwBvH5Rt06PIP8AAAAASUVORK5CYII="></img>
+      <h1 className=' text-xl'>Заказ: {data.order_id}</h1>
+      <button type="button" onClick={handleClickCloseOrder} class="rounded-md inline-flex items-center justify-center cross-image">
+              <span class="sr-only">Close menu</span>
+              <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M 6 18 L 18 6 M 6 6 l 12 12" />
+              </svg>
+      </button>
     </div>
     <ul className='mt-3'>
       <li key={'additional_contacts'} className="w-full ">Доп. контакты: {data.additional_contacts}</li>
 
       <li key={'adress'} className="w-full ">
-            <a className=' link' href={adress_yandex_map}>Адрес: {data.adress}</a>
+        <div className='flex'>
+          <LocationLogo/>
+          <a className=' link' href={adress_yandex_map}>Адрес: {data.adress}</a>
+        </div>
       </li>
-      <li key={'paid'} className="w-full ">{paid}{extra}</li>
-      <li key={'customer'} className="w-full ">клиент: {data.customer}</li>
-      <li key={'metro'} className="w-full ">метро: {data.metro}</li>
+      <li key={'paid'} className="w-full ">
+        {paid === 'Оплачено' ? (
+          <div className='flex'>
+            <CheckMarkLogo/>
+            <p>{paid}{extra}</p>
+          </div> 
+        ) : 
+        (
+          <div className='flex'>
+            <CrossLogo/>
+            <p>{paid}{extra}</p>
+          </div>
+        )}
+
+      </li>
+      <li key={'customer'} className="w-full ">
+        <div className='flex '>
+          <ClientLogo/>
+          <p>Клиент: {data.customer}</p>
+        </div>
+
+
+      </li>
+      <li key={'metro'} className="w-full ">
+        <div className='flex'>
+          <MetroLogo/>
+          <p>Метро: {data.metro}</p>
+        </div>
+      </li>
       <li key={'phone_number'} className="w-full ">
-        <a href={phone}>{data.phone_number}</a>
+        <div className='flex'>
+          <PhoneCallLogo/>
+          <a href={phone}>{data.phone_number}</a>
+        </div>
       </li>
-      <li key={'tovar_arrival_time'} className="w-full ">время доставки: {data.tovar_arrival_time}</li>
+      <li key={'tovar_arrival_time'} className="w-full ">
+        <div className='flex'>
+          <ClockLogo/>
+          <p>время доставки: {data.tovar_arrival_time}</p>
+        </div>
+        
+      </li>
       <li key={'positions'} className="w-full ">
         {positions.length > 0 ? (  
           <div>
@@ -142,7 +193,6 @@ export default function Order(props) {
                   amount = {d.amount}
                   price = {d.price}
                   key = {d.id}
-                  // main_btn = {props.main_btn}
                 />
               ))}
               </div>
