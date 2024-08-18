@@ -65,7 +65,7 @@ export default function position(props){
   return (
     <div className={position_style}>
       <Script src='/static/telegram-web-app.js' strategy='beforeInteractive'></Script>
-      <div className=' flex justify-between mr-1 mb-2'>
+      <div className=' flex justify-between mt-1 mr-1 mb-2'>
         <h1 className='text-xl'>{props.id}</h1>
         {is_delivery ?(null) : (
           <button type="button" onClick={handleClickClosePosition} className="rounded-md inline-flex items-center justify-center cross-image">

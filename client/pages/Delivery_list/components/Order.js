@@ -184,7 +184,7 @@ export default function Order(props) {
       </li>
       <li key={'positions'} className="w-full mt-10">
         <h1 className='section-header'>Позиции</h1>
-        <ul className='grid grid-cols-4 gap-2 separetor pb-3'>
+        <ul className='grid grid-cols-4 gap-2 separetor pb-3 text-xl'>
           <li className='flex justify-start'>
             <p>№/Название</p>
           </li>
