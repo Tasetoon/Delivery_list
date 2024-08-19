@@ -184,17 +184,17 @@ export default function Order(props) {
       </li>
       <li key={'positions'} className="w-full mt-10">
         <h1 className='section-header'>Позиции</h1>
-        <ul className='grid grid-cols-4 gap-2 separetor pb-3'>
+        <ul className='grid grid-cols-4 separetor pb-3'>
           <li className='flex justify-start'>
             <p>№/Название</p>
           </li>
-          <li className='flex pl-2'>
+          <li className='flex pl-3'>
             Кол-во
           </li>
-          <li className='inline pl-3'>
+          <li className='inline pl-4'>
             Цена
           </li>
-          <li className='inline'>
+          <li className='inline pr-2'>
             Стоимость
           </li>
         </ul>
