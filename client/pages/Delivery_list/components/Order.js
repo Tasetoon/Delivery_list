@@ -191,11 +191,11 @@ export default function Order(props) {
           <li className='flex pl-2'>
             Кол-во
           </li>
-          <li className='inline'>
-            Стоимость
+          <li className='inline pl-3'>
+            Цена
           </li>
           <li className='inline'>
-            Итого
+            Стоимость
           </li>
         </ul>
         {positions.length > 0 ? (  
@@ -220,7 +220,7 @@ export default function Order(props) {
         <div>
           <ul className='result-position'>
             <li className='inline'>
-              <p>Всего: {order_amount}</p>
+              <p>Итого: {order_amount}</p>
             </li>
             <li className='inline'>
               <p>К оплате: {order_price}</p>

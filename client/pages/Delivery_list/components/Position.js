@@ -158,7 +158,7 @@ export default function position(props){
                       }}
                     window.Telegram.WebApp.showConfirm('Вы уверены? \nВы вносите изменения после подсчета!', callback)}
                   else{
-                    parseInt(e.target.value) >= 0 ? setAmount( Math.floor(e.target.value)) : null;
+                    parseInt(e.target.value) >= 0 ? setPrice( Math.floor(e.target.value)) : null;
                   } 
                 }}
               value = {pos_price}
